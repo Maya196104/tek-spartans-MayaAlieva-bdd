@@ -30,6 +30,7 @@ public class SeleniumUtility extends BaseSetup {
         getWait().until(ExpectedConditions.visibilityOfElementLocated(locator)).sendKeys(value);
     }
 
+       //Create method for getting the text of a locator
     public String getElementText(By locator) {
         return waitForVisibility(locator)
                 .getText();
