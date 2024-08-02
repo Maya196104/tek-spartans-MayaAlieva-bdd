@@ -28,9 +28,10 @@ public class BaseSetup {
         }
 
     }
-     // Giving read-only indirect access to driver
+    // Giving read-only indirect access to driver
     //restrict setting new driver instance
     public WebDriver getDriver(){
         return driver;
     }
 }
+

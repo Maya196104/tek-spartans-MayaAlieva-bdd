@@ -9,6 +9,8 @@ import tek.bdd.base.BaseSetup;
 
 import java.time.Duration;
 
+import static java.sql.DriverManager.getDriver;
+
 public class SeleniumUtility extends BaseSetup {
 
     private WebDriverWait getWait() {
