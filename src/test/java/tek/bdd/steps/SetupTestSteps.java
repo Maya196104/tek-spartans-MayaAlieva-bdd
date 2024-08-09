@@ -20,5 +20,10 @@ public class SetupTestSteps extends SeleniumUtility {
 
     }
 
+    @Then("Validate Sign in button is Enabled")
+    public void validateSignInButtonEnabled() {
+        boolean isSignInBtnEnabled = isElementEnabled(By.id("signinLink"));
+        Assert.assertTrue(isSignInBtnEnabled);
+    }
 
 }

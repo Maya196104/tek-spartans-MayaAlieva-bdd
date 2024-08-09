@@ -9,7 +9,7 @@ import tek.bdd.base.BaseSetup;
 
 import java.time.Duration;
 
-import static java.sql.DriverManager.getDriver;
+
 
 public class SeleniumUtility extends BaseSetup {
 
@@ -38,5 +38,10 @@ public class SeleniumUtility extends BaseSetup {
     public boolean isElementEnabled(By locator) {
         return waitForVisibility(locator)
                 .isEnabled();
+    }
+
+    public boolean isElementDisplayed(By locator) {
+        return waitForVisibility(locator)
+                .isDisplayed();
     }
 }

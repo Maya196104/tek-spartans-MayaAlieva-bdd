@@ -9,7 +9,6 @@ import tek.bdd.pages.SignInPage;
 import tek.bdd.utility.SeleniumUtility;
 
 
-
 public class SecurityTestSteps extends SeleniumUtility {
 
     @When("user click on sign in link")
@@ -41,6 +40,13 @@ public class SecurityTestSteps extends SeleniumUtility {
     public void user_should_be_able_to_see_account_link() {
         boolean isAccountDisplayed = isElementEnabled(HomePage.ACCOUNT_LINK);
         Assert.assertTrue(isAccountDisplayed);
+    }
+
+    @Then("user should see error {string}")
+    public void userShouldSeeError(String expectedErrorMessage) {
+        String actualErrorMessage = getElementText(SignInPage.ERROR_MESSAGE);
+
+        Assert.assertEquals(expectedErrorMessage, actualErrorMessage);
     }
 }
 
