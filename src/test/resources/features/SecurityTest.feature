@@ -9,16 +9,11 @@ Feature: This feature is security test scenario
 
      #Task First implement this below scenarios and then Apply Scenario Outline
 
-  Scenario: Validate sign in with invalid username valid password
-    When user click on sign in link
-    Then validate user is in sign in page
-    When user enter "invalid@gmail.com" and "Password@123" and click on login
-    Then user should see error "wrong username or password"
 
-  Scenario: Validate sign in with invalid username valid password
+  Scenario: Validate sign in with invalid credentials
     When user click on sign in link
     Then validate user is in sign in page
-    When user enter "maya23@gmail.com" and "WrongUserName" and click on login
+    When user enter "<username>" and "<password>" and click on login
     Then user should see error "wrong username or password"
 
   Example:
