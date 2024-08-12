@@ -9,11 +9,14 @@ import org.junit.runner.RunWith;
     @CucumberOptions(
             features = "classpath:features/CreateNewAccount.feature", // Directory for Feature file
             glue = "tek.bdd.steps", //Package for all the steps
-            dryRun = false ////set to true to scan feature for unimplemented steps
+            dryRun = false, ////set to true to scan feature for unimplemented steps
+            tags = "@UserStory1",
+            plugin = {
+                    "html:target/cucumber_report/index.html"
+    }
     )
-
     public class TestRunner {
 
     }
 
-
+// Running multiple tags => tags = "@Smoke or @Regression"
