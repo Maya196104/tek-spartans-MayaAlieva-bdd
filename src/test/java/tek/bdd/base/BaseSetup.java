@@ -13,12 +13,18 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import tek.bdd.browsers.BaseBrowser;
+import tek.bdd.browsers.ChromeBrowser;
+import tek.bdd.browsers.EdgeBrowser;
+import tek.bdd.browsers.FireFoxBrowser;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
+
+
 
 public abstract class BaseSetup {
 private static final Logger LOGGER = LogManager.getLogger(BaseSetup.class);
@@ -43,10 +49,7 @@ private static final Logger LOGGER = LogManager.getLogger(BaseSetup.class);
                  properties.load(fileInputStream);
 
              }catch (IOException ex) {
-
                  LOGGER.error("Error reading config file", ex);
-
-
                  throw new RuntimeException("Something wrong with Config file", ex);
 
              }
@@ -60,27 +63,38 @@ private static final Logger LOGGER = LogManager.getLogger(BaseSetup.class);
 
             boolean isHeadless = Boolean.parseBoolean(properties.getProperty("ui.browser.headless"));
             LOGGER.info("Running on browser {} and isHeadless {}", browserType, isHeadless );
-            if (browserType.equalsIgnoreCase("chrome")) {
-                ChromeOptions options = new ChromeOptions();
-                if (isHeadless)
-                    options.addArguments("--headless");
-                driver = new ChromeDriver(options);
-            } else if (browserType.equalsIgnoreCase("edge")) {
-                EdgeOptions options = new EdgeOptions();
-                if (isHeadless) options.addArguments("--headless");
-                driver = new EdgeDriver(options);
-            } else if (browserType.equalsIgnoreCase("firefox")) {
-                FirefoxOptions options = new FirefoxOptions();
-                if (isHeadless)
-                    options.addArguments("--headless");
-                driver = new FirefoxDriver();
-                driver = new FirefoxDriver(options);
-            } else {
-                throw new RuntimeException("Wrong browser type choose between chrome, firefox or edge");
-            }
+
+            BaseBrowser browser;
+
+            if(browserType.equalsIgnoreCase("chrome"))
+                browser = new ChromeBrowser();
+            else if (browserType.equalsIgnoreCase("edge"))
+                browser = new EdgeBrowser();
+            else if (browserType.equalsIgnoreCase("firefox"))
+                browser = new FireFoxBrowser();
+            else
+              throw new RuntimeException("Wrong browser type choose between chrome, firefox or edge");
+             driver  = browser.openBrowser(isHeadless);
 
 
 
+            //  if (browserType.equalsIgnoreCase("chrome")) {
+          //      ChromeOptions options = new ChromeOptions();
+            //     if (isHeadless)
+            //         options.addArguments("--headless");
+            //     driver = new ChromeDriver(options);
+            //  } else if (browserType.equalsIgnoreCase("edge")) {
+            //    EdgeOptions options = new EdgeOptions();
+            //   if (isHeadless) options.addArguments("--headless");
+            //   driver = new EdgeDriver(options);
+            // } else if (browserType.equalsIgnoreCase("firefox")) {
+            //   FirefoxOptions options = new FirefoxOptions();
+            //   if (isHeadless)
+            //       options.addArguments("--headless");
+            //   driver = new FirefoxDriver();
+            //   driver = new FirefoxDriver(options);
+            //} else {
+            //  throw new RuntimeException("Wrong browser type choose between chrome, firefox or edge");
 
             String url = properties.getProperty("ui.url");
             LOGGER.debug("Using URL {}", url);
