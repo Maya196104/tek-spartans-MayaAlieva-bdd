@@ -14,5 +14,6 @@ public class AccountProfileSteps extends SeleniumUtility {
         Assert.assertEquals("Account Profile should Match ",
                 expectedProfileName,
                 actualProfileName);
+
     }
 }
