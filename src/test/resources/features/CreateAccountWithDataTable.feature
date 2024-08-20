@@ -1,4 +1,4 @@
-@Regression
+@Smoke @Regression
 Feature: Create new account functionality
 
 #  Steps that is common between Scenarios of specific feature.

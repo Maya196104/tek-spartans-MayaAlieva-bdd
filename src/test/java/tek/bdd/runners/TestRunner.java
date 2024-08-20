@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
             dryRun = false, ////set to true to scan feature for unimplemented steps
 
 
-            tags = "@Smoke",
+            tags = "@UserStory5",
             plugin = {
                     "html:target/cucumber_report/index.html"
     }

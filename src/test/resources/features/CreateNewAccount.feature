@@ -1,3 +1,4 @@
+@Regression
 Feature: Create new account functionality
 
   # Background Steps that is common between Scenarios of specific feature.
