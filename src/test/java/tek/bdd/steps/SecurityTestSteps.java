@@ -38,7 +38,7 @@ public class SecurityTestSteps extends SeleniumUtility {
 
     @Then("user should be able to see account link")
     public void user_should_be_able_to_see_account_link() {
-        boolean isAccountDisplayed = isElementEnabled(HomePage.ACCOUNT_LINK);
+        boolean isAccountDisplayed = isElementDisplayed(HomePage.ACCOUNT_LINK);
         Assert.assertTrue(isAccountDisplayed);
     }
 

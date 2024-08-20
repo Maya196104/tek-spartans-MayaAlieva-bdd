@@ -11,7 +11,8 @@ import org.junit.runner.RunWith;
             glue = "tek.bdd.steps", //Package for all the steps
             dryRun = false, ////set to true to scan feature for unimplemented steps
 
-            tags = "@ValidateFieldErrorUsingMap",
+
+            tags = "@Smoke",
             plugin = {
                     "html:target/cucumber_report/index.html"
     }

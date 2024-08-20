@@ -1,3 +1,4 @@
+@Smoke @Regression
 Feature: This feature is security test scenario
 
   Scenario: validate sign in functionality with valid credential
