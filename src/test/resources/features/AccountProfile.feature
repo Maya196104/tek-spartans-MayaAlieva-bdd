@@ -22,3 +22,19 @@ Feature: Account profile feature
     When user enter "2819482106" on "Phone Number" field
     When user click on "Update" button
     Then validate Toast Displayed
+
+  @UserStory6
+  Scenario: Validate success password changes
+    Then validate user is in account page
+    When user enter "Password@555" on "Previous Password" field
+    When user enter "Password@666" on "New Password" field
+    When user enter "Password@777" on "Confirm Password" field
+    When user click on "Change Password" button
+    Then validate Toast Displayed
+    When wait for 6 seconds
+    When user enter "Password@777" on "Previous Password" field
+    When user enter "Password@555" on "New Password" field
+    When user enter "Password@666" on "Confirm Password" field
+    When user click on "Change Password" button
+    Then validate Toast Displayed
+    When wait for 6 seconds

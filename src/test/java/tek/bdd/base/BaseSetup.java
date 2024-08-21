@@ -77,9 +77,8 @@ private static final Logger LOGGER = LogManager.getLogger(BaseSetup.class);
              driver  = browser.openBrowser(isHeadless);
 
 
-
             //  if (browserType.equalsIgnoreCase("chrome")) {
-          //      ChromeOptions options = new ChromeOptions();
+           //      ChromeOptions options = new ChromeOptions();
             //     if (isHeadless)
             //         options.addArguments("--headless");
             //     driver = new ChromeDriver(options);
